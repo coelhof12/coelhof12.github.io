@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import './styles/App.css';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         {/* Use Routes instead of Switch */}
         <Routes>
@@ -15,7 +15,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

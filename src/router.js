@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -8,7 +8,7 @@ import Contact from './pages/Contact';   // Placeholder
 
 const AppRouter = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,7 +17,7 @@ const AppRouter = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 };
 
