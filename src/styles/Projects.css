@@ -1,23 +1,51 @@
 .projects-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
+  padding: 20px;
+  text-align: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+      grid-template-columns: 1fr; /* Stacks cards in one column */
   }
-  
+
   .project-card {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: left;
+      padding: 15px; /* Slightly less padding for smaller screens */
   }
-  
-  .project-card img {
-    max-width: 100%;
-    border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+      grid-template-columns: 1fr; /* Stacks cards fully on mobile */
   }
-  
+
+  .project-card {
+      padding: 10px; /* Smaller padding for mobile devices */
+      font-size: 0.9rem; /* Slightly smaller text on mobile */
+  }
+}
