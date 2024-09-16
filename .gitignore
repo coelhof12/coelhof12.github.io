@@ -1,0 +1,20 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Misc
+.DS_Store
+.env
+.vscode/
+
+# Cache directories
+.cache/
+.idea/

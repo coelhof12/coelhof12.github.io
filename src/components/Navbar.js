@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom'; // Assuming React Router will handle navigation
 import './Navbar.css'; // Add custom styles here
 
