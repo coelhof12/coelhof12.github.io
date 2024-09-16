@@ -1,0 +1,18 @@
+/* Global styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5; /* Your preferred global background color */
+  color: #1D1D1D; /* Global text color */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0.5em 0;
+}
