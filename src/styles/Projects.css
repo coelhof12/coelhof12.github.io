@@ -1,0 +1,23 @@
+.projects-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .project-card img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
