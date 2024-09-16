@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "title": "Project One",
+      "description": "This is a description of the first project.",
+      "technologies": ["JavaScript", "React", "CSS"],
+      "repoLink": "https://github.com/username/project-one",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "title": "Project Two",
+      "description": "This is a description of the second project.",
+      "technologies": ["Node.js", "Express", "MongoDB"],
+      "repoLink": "https://github.com/username/project-two",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]  
