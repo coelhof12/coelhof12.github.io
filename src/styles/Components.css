@@ -1,57 +1,111 @@
-/*
-NAVBAR 
-*/
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-logo a {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #1D1D1D; /* Black background */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #E63946; /* Red for the brand/logo */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: #F5F5F5; /* White text for links */
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #E63946; /* Red hover effect */
+}
+
+.navbar-logo img {
+  height: 75px; /* Adjust based on your needs */
+  width: auto;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
   .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    display: none; /* Hide links on mobile by default */
+    flex-direction: column;
+    gap: 15px;
+    background-color: #1D1D1D; /* Same background color */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 10px 0;
   }
-  
-  .navbar-links a {
-    text-decoration: none;
-    font-size: 1em;
-    color: #333;
+
+  .navbar-menu-icon {
+    display: block;
+    font-size: 2rem;
+    color: #F5F5F5;
+    cursor: pointer;
   }
-  
-  .navbar-links a:hover {
-    color: #E63946;
+
+  .show-navbar-links {
+    display: flex; /* Show links when menu is toggled */
   }
+}
 
 /*
 FOOTER 
 */
 
-  .footer {
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .footer a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    color: #ff0000; /* Change to your brand color */
-  }
-  
-  
+.footer {
+  background-color: #1D1D1D;
+  color: #F5F5F5;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Keeps footer at the bottom */
+  bottom: 0;
+  width: 100%; /* Full width */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo img {
+  height: 60px; /* Adjust logo size */
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #F5F5F5;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a {
+  color: #F5F5F5;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #E63946;
+}
+
+.footer-copyright p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #ddd;
+}

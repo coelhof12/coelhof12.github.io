@@ -7,12 +7,99 @@
 }
 
 body {
+  background-color: #F5F5F5; /* White background for the site */
+  color: #1D1D1D; /* Black text */
   font-family: 'Montserrat', sans-serif;
-  background-color: #f5f5f5; /* Your preferred global background color */
-  color: #1D1D1D; /* Global text color */
+  font-size: 16px; /* Base font size */
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0.5em 0;
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  margin: 20px 0; 
+  color: #E63946; 
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 18px 0;
+  color: #E63946;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin: 16px 0;
+  color: #1D1D1D; 
+}
+
+h4, h5, h6 {
+  font-size: 1.5rem; 
+  margin: 14px 0;
+  color: #1D1D1D;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem; 
+  margin: 10px 0; 
+  line-height: 1.6; 
+  color: #1D1D1D; 
+}
+
+a {
+  color: #E63946;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #E63946; 
+  color: #F5F5F5;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #C7323D;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments for mobile */
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2rem; /* Adjusted for smaller screens */
+  }
+
+  h2 {
+      font-size: 1.75rem;
+  }
+
+  p {
+      font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  /* Example of adjusting layout */
+  .container {
+      padding: 10px; /* Add more padding for mobile */
+  }
+
+}
+
+.main-content {
+  min-height: calc(100vh - 60px); /* Ensure it takes the full height minus footer */
+  margin-bottom: 60px; /* Same as footer height */
+  overflow: auto; /* Allow the content to scroll */
+  flex: 1;
 }
