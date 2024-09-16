@@ -5,22 +5,23 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Increased min size */
   gap: 20px;
-  padding: 20px;
 }
 
 .project-card {
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
 }
 
 .project-card img {
@@ -28,24 +29,18 @@
   border-radius: 8px;
 }
 
+
+
 /* Media query for smaller screens */
-@media (max-width: 768px) {
+  @media (max-width: 1024px) {
   .projects-grid {
-      grid-template-columns: 1fr; /* Stacks cards in one column */
+      grid-template-columns: repeat(2,1fr); /* Stacks cards in one column */
   }
-
-  .project-card {
-      padding: 15px; /* Slightly less padding for smaller screens */
   }
-}
-
-@media (max-width: 480px) {
+  @media (max-width: 768px) {
   .projects-grid {
-      grid-template-columns: 1fr; /* Stacks cards fully on mobile */
+      grid-template-columns: 1fr; 
+  
+    }
   }
 
-  .project-card {
-      padding: 10px; /* Smaller padding for mobile devices */
-      font-size: 0.9rem; /* Slightly smaller text on mobile */
-  }
-}
