@@ -1,8 +1,11 @@
 /* Example styles for App component */
+/* App.css */
+
 .App {
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-  }
+  text-align: center;
+  padding: 20px;
+}
+
+.App h1 {
+  color: #E63946; /* Branding color */
+}

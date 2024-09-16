@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/Projects.css'; // Add styles as needed
+import '../styles/Projects.css'; 
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    // Fetch project data from the JSON file
-    fetch('/data/projects.json')
+    fetch('/projects.json')
       .then(response => response.json())
       .then(data => setProjects(data))
       .catch(error => console.error('Error fetching project data:', error));
-  }, []);
+  }, []);  
 
   return (
     <div className="projects-container">
