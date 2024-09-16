@@ -95,7 +95,11 @@ img {
       padding: 10px; /* Add more padding for mobile */
   }
 
-  .projects-grid {
-      grid-template-columns: 1fr; /* Stack project cards on mobile */
-  }
+}
+
+.main-content {
+  min-height: calc(100vh - 60px); /* Ensure it takes the full height minus footer */
+  margin-bottom: 60px; /* Same as footer height */
+  overflow: auto; /* Allow the content to scroll */
+  flex: 1;
 }
