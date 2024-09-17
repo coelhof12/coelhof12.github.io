@@ -1,14 +1,63 @@
-/* Example styles for App component */
-/* App.css */
-
-.App {
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.about-container {
+  padding: 40px;
+  color: #1D1D1D;
+  background-color: #F5F5F5;
 }
 
-.App h1 {
-  color: #E63946; /* Branding color */
+.about-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-intro h1 {
+  font-size: 2.5rem;
+  color: #E63946; /* Brand red color */
+}
+
+.about-intro p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.about-skills {
+  margin: 40px 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.skill-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about-timeline {
+  margin-top: 40px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  padding: 20px;
+  background-color: #fff;
+  border-left: 5px solid #E63946;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

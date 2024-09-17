@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import '../styles/Projects.css'; 
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   const [inView, setInView] = useState(false);
   const cardRef = useRef();
 
@@ -30,11 +30,12 @@ const ProjectCard = ({ project }) => {
     };
   }, []);
 
-  // Define animation for the project card
+  // Define animation for the project card with staggered effect
   const fadeIn = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0)' : 'translateY(50px)',
-    config: { tension: 200, friction: 20 },
+    transform: inView ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
+    config: { tension: 220, friction: 30 },
+    delay: index * 200, // Stagger animation based on index
   });
 
   return (
@@ -62,8 +63,8 @@ const Projects = () => {
     <div className="projects-container">
       <h1>My Projects</h1>
       <div className="projects-grid">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </div>
