@@ -4,6 +4,8 @@
   "main": "index.js",
   "dependencies": {
     "@react-spring/web": "^9.7.4",
+    "chroma-js": "^3.1.1",
+    "github-calendar": "^2.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
