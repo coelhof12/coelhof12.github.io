@@ -1,16 +1,95 @@
 .home {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
-.github-stats {
-    text-align: center;
-    margin: 40px 0;
+/* Banner styles */
+.banner-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.banner-image {
+  width: 70%; 
+  height: auto; 
+  object-fit: cover;
+
+}
+
+/* Intro section styles */
+.intro-section {
+  margin-top: 20px;
+}
+
+.intro-section h1 {
+  font-size: 2.5rem;
+  color: #E63946;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* GitHub Stats */
+.github-stats, .github-languages {
+  margin: 40px 0;
+}
+
+.github-stats img, .github-languages img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Key Skills Highlight */
+.skills-highlight {
+  margin-top: 40px;
+}
+
+.skills-highlight ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-highlight li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Personal Branding */
+.personal-branding {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #1D1D1D;
+}
+
+/* Featured Project */
+.featured-project {
+  margin-top: 40px;
+}
+
+.featured-project p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.featured-project .cta-button {
+  margin-top: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .intro-section h1 {
+      font-size: 2rem;
   }
-  
-  .github-stats img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }  
+
+  .cta-buttons {
+      flex-direction: column;
+  }
+}
+
   
