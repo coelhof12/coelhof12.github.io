@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSpring, animated } from '@react-spring/web';
-import '../styles/Projects.css'; 
+import '../styles/Contacts.css';
+import '../index.css';
 
 const ProjectCard = ({ project, index }) => {
   const [inView, setInView] = useState(false);
@@ -43,7 +44,7 @@ const ProjectCard = ({ project, index }) => {
       <h2>{project.title}</h2>
       <p>{project.description}</p>
       <p><strong>Technologies:</strong> {project.technologies.join(', ')}</p>
-      <a href={project.repoLink} target="_blank" rel="noopener noreferrer">View Repository</a>
+      <a href={project.repoLink} className="modern-button">View Project</a>
       {project.image && <img src={project.image} alt={project.title} />}
     </animated.div>
   );
