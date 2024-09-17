@@ -1,0 +1,16 @@
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.github-stats {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .github-stats img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }  
+  
