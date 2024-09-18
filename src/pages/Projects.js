@@ -9,6 +9,8 @@ const ProjectCard = ({ project, index }) => {
   const cardRef = useRef();
 
   useEffect(() => {
+    console.log('GitHub Token:', process.env.REACT_APP_GITHUB_TOKEN);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -147,7 +149,7 @@ const Projects = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))
         ) : (
-          <p>No projects found.</p>
+          <p>Loading GitHub Repositories.</p>
         )}
       </div>
     </div>
