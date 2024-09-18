@@ -75,7 +75,7 @@ const Projects = () => {
       try {
         const response = await fetch('https://api.github.com/users/coelhof12/repos', {
           headers: {
-            Authorization: `token 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`,
+            Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
           },
         });
         if (!response.ok) {
@@ -90,7 +90,7 @@ const Projects = () => {
           repos.map(async (repo) => {
             const languagesResponse = await fetch(repo.languages_url, {
               headers: {
-                Authorization: `token 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`,
+                Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
               },
             });
             const languages = await languagesResponse.json();
@@ -98,7 +98,7 @@ const Projects = () => {
             // Fetch README file
             const readmeResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`, {
               headers: {
-                Authorization: `token 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`,
+                Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
               },
             });
 
