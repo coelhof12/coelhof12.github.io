@@ -1,42 +1,101 @@
+/* Project cards container */
 .projects-container {
   padding: 20px;
   text-align: center;
+  flex: 1; /* Allows the container to take up the remaining height */
 }
 
+/* Grid layout for projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Force two cards per row */
+  gap: 50px 30px; /* Vertical and horizontal gap, with increased vertical spacing */
+  justify-content: center; /* Center the grid items */
 }
 
+/* Project card styling */
 .project-card {
-  padding: 30px;
-  border-radius: 8px;
+  perspective: 1000px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  text-align: left;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 500px; /* Increase height to prevent content from being cramped */
+  width: 550px; /* Increase width to make cards larger */
+  margin: 0 auto; /* Center the individual cards */
 }
 
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Inner content for the card */
+.project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-.project-card img {
+/* Flip the card */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Front and back sides of the card */
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Ensure the back is hidden initially */
+.project-card-back {
+  transform: rotateY(180deg);
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Prevent long repo names from overflowing */
+.project-header h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 100%;
-  border-radius: 8px;
 }
 
-/* Media query for smaller screens */
+/* Ensure consistent image sizes */
+.project-image {
+  width: 100%;
+  max-height: 250px; /* Slightly larger image space */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Add this to prevent the back from showing prematurely */
+.project-card-back {
+  display: none;
+}
+
+.flipped .project-card-back {
+  display: block;
+}
+
+.flipped .project-card-front {
+  display: none;
+}
+
+/* Media queries for responsiveness */
 @media (max-width: 1024px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* One card per row on smaller screens */
   }
-}
 
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .project-card {
+    width: 100%;
+    height: auto; /* Adjust the height to fit the content */
   }
 }
