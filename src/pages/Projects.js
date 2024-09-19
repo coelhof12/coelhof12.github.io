@@ -9,8 +9,6 @@ const ProjectCard = ({ project, index }) => {
   const cardRef = useRef();
 
   useEffect(() => {
-    console.log('GitHub Token:', process.env.REACT_APP_GITHUB_TOKEN);
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,35 +40,34 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <animated.div
-  ref={cardRef}
-  style={fadeIn}
-  className="project-card"
-  onClick={() => setFlip(!flip)} // Flip the card on click
->
-  <div className={`project-card-inner ${flip ? 'flipped' : ''}`}>
-    <div className="project-card-front">
-      <div className="project-header">
-        <h2>{project.name}</h2>
-        <span className="project-badge">Personal</span>
+      ref={cardRef}
+      style={fadeIn}
+      className="project-card"
+      onClick={() => setFlip(!flip)} // Flip the card on click
+    >
+      <div className={`project-card-inner ${flip ? 'flipped' : ''}`}>
+        <div className="project-card-front">
+          <div className="project-header">
+            <h2>{project.name}</h2>
+          </div>
+          <p>{project.description || 'No description available'}</p>
+          <p><strong>Technologies:</strong> {project.languages?.length ? project.languages.join(', ') : 'N/A'}</p>
+          {project.image && <img src={project.image} alt={project.name} className="project-image" />}
+          <a href={project.html_url} className="modern-button" target="_blank" rel="noopener noreferrer">
+            View Project
+          </a>
+        </div>
+        <div className="project-card-back">
+          <p>{project.additionalInfo || 'No additional information available'}</p>
+        </div>
       </div>
-      <p>{project.description || 'No description available'}</p>
-      <p><strong>Technologies:</strong> {project.languages?.length ? project.languages.join(', ') : 'N/A'}</p>
-      {project.image && <img src={project.image} alt={project.name} className="project-image" />}
-        <a href={project.html_url} className="modern-button" target="_blank" rel="noopener noreferrer">
-        View Project
-        </a>
-      </div>
-      <div className="project-card-back">
-        <p>Additional details from README or any custom content here...</p>
-      </div>
-    </div>
-  </animated.div>
+    </animated.div>
   );
 };
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  const [error, setError] = useState(null); // To display errors
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -85,9 +82,7 @@ const Projects = () => {
         }
 
         const repos = await response.json();
-        console.log('Fetched Repositories:', repos); // Log the fetched repos
 
-        // Fetch languages and README for each repo
         const projectsWithDetails = await Promise.all(
           repos.map(async (repo) => {
             const languagesResponse = await fetch(repo.languages_url, {
@@ -97,7 +92,6 @@ const Projects = () => {
             });
             const languages = await languagesResponse.json();
 
-            // Fetch README file
             const readmeResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`, {
               headers: {
                 Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
@@ -107,29 +101,28 @@ const Projects = () => {
             const readmeData = await readmeResponse.json();
             if (!readmeData.content) {
               console.warn(`No README found for ${repo.name}`);
-              return null;
+              return { ...repo, languages: Object.keys(languages), image: null, additionalInfo: null };
             }
-            const readmeContent = atob(readmeData.content); // Decode base64
 
-            // Extract image link from README content if exists
+            const readmeContent = atob(readmeData.content);
             const imageMatch = readmeContent.match(/!\[.*\]\((.*)\)/);
+            const additionalInfoMatch = readmeContent.match(/## Additional Information([\s\S]*?)(##|$)/);
+
             const image = imageMatch ? imageMatch[1] : null;
+            const additionalInfo = additionalInfoMatch ? additionalInfoMatch[1].trim() : null;
 
             return {
               ...repo,
               languages: Object.keys(languages),
               image,
+              additionalInfo,
             };
           })
         );
 
-        // Filter out null values (repos with missing README)
-        const filteredProjects = projectsWithDetails.filter(Boolean);
-        console.log('Processed Projects:', filteredProjects);
-        setProjects(filteredProjects);
+        setProjects(projectsWithDetails.filter(Boolean));
       } catch (error) {
-        console.error('Error fetching repositories:', error);
-        setError(error.message); // Set error message for display
+        setError(error.message);
       }
     };
 
@@ -137,7 +130,7 @@ const Projects = () => {
   }, []);
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error if any
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -149,7 +142,7 @@ const Projects = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))
         ) : (
-          <p>Loading GitHub Repositories.</p>
+          <p>Loading GitHub Repositories...</p>
         )}
       </div>
     </div>
