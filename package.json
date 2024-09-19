@@ -8,6 +8,7 @@
     "chroma-js": "^3.1.1",
     "dotenv": "^16.4.5",
     "github-calendar": "^2.3.4",
+    "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
