@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "homepage": "https://coelhof12.github.io/coelhof12.github.io",
+  "homepage": "https://coelhof12.github.io",
   "main": "index.js",
   "dependencies": {
     "@react-spring/web": "^9.7.4",
@@ -15,11 +15,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "node fetchGitHubData.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && git add -A && git commit -m 'Deploy to GitHub Pages' && git push origin main"
   },
   "browserslist": {
     "production": [
