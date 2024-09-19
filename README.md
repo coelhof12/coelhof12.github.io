@@ -1,5 +1,11 @@
 # My Personal Portfolio (SPA)
 
+![Project Cover](./images/project-screenshot.png)
+
+## Additional Information
+
+A responsive Single Page Application (SPA) portfolio built with React to showcase my skills as a Full-Stack Developer. This project features dynamic integration with the GitHub API to automatically display public repositories, smooth animations, modern design, and seamless navigation. The site will also include a language selector powered by Google Translate to provide a multilingual experience for visitors.
+
 ## Introduction
 
 Welcome to my website! This project is a **Single Page Application** built to showcase my jorney as a full-stack developer. The website will feature dynamic project updates, demonstrating my technical capabilities in building scalable and performant web applications.
@@ -21,13 +27,15 @@ The primary goal of this portfolio is to present my skills, experience, and proj
 - **Downloadable CV**: Visitors will be able to download my CV directly from the site.
 - **Blog Section**: Future plans include a blog to share insights, tutorials, and personal experiences.
 
-## Technologies
+## Technologies Used
 
-- **Frontend**: React.js with React Spring for animations.
-- **API Integration**: Google Translate API, GitHub API (to display projects).
-- **Hosting**: GitHub Pages.
-- **Form Handling**: Formspree for contact form submissions.
-- **Analytics**: Google Analytics for tracking site performance.
+- **React**
+- **GitHub API**
+- **React Spring**
+- **CSS Grid/Flexbox**
+- **Google Translate API**
+- **GitHub Pages**
+-
 
 ## Legal Notice
 
