@@ -50,3 +50,6 @@ dist/
 .cache/
 .idea/
 >>>>>>> 44451949623440f8394eb3d4e8007824b239fbdc
+
+
+src/githubData.json
