@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "homepage": "https://coelhof12.github.io",
+  "homepage": "https://coelhof12.github.io/",
   "main": "index.js",
   "dependencies": {
     "@react-spring/web": "^9.7.4",
