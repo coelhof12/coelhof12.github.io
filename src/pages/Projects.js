@@ -4,11 +4,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import '../styles/Projects.css';
 import '../index.css';
-import githubData from '../githubData.json'; // Import the pre-fetched GitHub data
+
+// Try importing the githubData.json file; if it fails, fallback to an empty array
+let githubData = [];
+try {
+  githubData = require('../githubData.json');
+} catch (error) {
+  console.warn('githubData.json not found. Using fallback data.');
+}
 
 const ProjectCard = ({ project, index }) => {
   const [inView, setInView] = useState(false);
-  const [flip, setFlip] = useState(false); // For card flip
+  const [flip, setFlip] = useState(false);
   const cardRef = useRef();
 
   useEffect(() => {
@@ -73,11 +80,6 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   const [projects] = useState(githubData); // Initialize projects with the imported data
-  const [error] = useState(null); // No need for error state since we're not fetching at runtime
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <div className="projects-container">
@@ -88,7 +90,7 @@ const Projects = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))
         ) : (
-          <p>Loading GitHub Repositories...</p>
+          <p>No projects to display. Please try again later.</p>
         )}
       </div>
     </div>
