@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "node fetchGitHubData.js",
+    "prebuild": "node fetchGitHubData.js || echo 'Skipping GitHub data fetch in production'",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
