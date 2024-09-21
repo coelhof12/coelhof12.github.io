@@ -1,16 +1,16 @@
 // Projects.js
 
-import React, { useState, useRef, useEffect } from 'react';
-import { useSpring, animated } from '@react-spring/web';
-import '../styles/Projects.css';
-import '../index.css';
+import React, { useState, useRef, useEffect } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import "../styles/Projects.css";
+import "../index.css";
 
 // Try importing the githubData.json file; if it fails, fallback to an empty array
 let githubData = [];
 try {
-  githubData = require('../githubData.json');
+  githubData = require("../githubData.json");
 } catch (error) {
-  console.warn('githubData.json not found. Using fallback data.');
+  console.warn("githubData.json not found. Using fallback data.");
 }
 
 const ProjectCard = ({ project, index }) => {
@@ -43,7 +43,9 @@ const ProjectCard = ({ project, index }) => {
 
   const fadeIn = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
+    transform: inView
+      ? "translateY(0) scale(1)"
+      : "translateY(50px) scale(0.95)",
     config: { tension: 220, friction: 30 },
     delay: index * 200,
   });
@@ -55,23 +57,36 @@ const ProjectCard = ({ project, index }) => {
       className="project-card"
       onClick={() => setFlip(!flip)} // Flip the card on click
     >
-      <div className={`project-card-inner ${flip ? 'flipped' : ''}`}>
+      <div className={`project-card-inner ${flip ? "flipped" : ""}`}>
         <div className="project-card-front">
           <div className="project-header">
             <h2>{project.name}</h2>
           </div>
-          <p>{project.description || 'No description available'}</p>
+          <p>{project.description || "No description available"}</p>
           <p>
-            <strong>Technologies:</strong>{' '}
-            {project.languages?.length ? project.languages.join(', ') : 'N/A'}
+            <strong>Technologies:</strong>{" "}
+            {project.languages?.length ? project.languages.join(", ") : "N/A"}
           </p>
-          {project.image && <img src={project.image} alt={project.name} className="project-image" />}
-          <a href={project.html_url} className="modern-button" target="_blank" rel="noopener noreferrer">
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.name}
+              className="project-image"
+            />
+          )}
+          <a
+            href={project.html_url}
+            className="modern-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View Project
           </a>
         </div>
         <div className="project-card-back">
-          <p>{project.additionalInfo || 'No additional information available'}</p>
+          <p>
+            {project.additionalInfo || "No additional information available"}
+          </p>
         </div>
       </div>
     </animated.div>
