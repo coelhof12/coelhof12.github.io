@@ -1,9 +1,11 @@
+/* General container styling */
 .about-container {
   padding: 40px;
   color: #1D1D1D;
   background-color: #F5F5F5;
 }
 
+/* Introduction section */
 .about-intro {
   text-align: center;
   margin-bottom: 40px;
@@ -21,6 +23,7 @@
   line-height: 1.8;
 }
 
+/* Skills overview section */
 .about-skills {
   margin: 40px 0;
 }
@@ -38,6 +41,16 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevents overflow of content */
+  white-space: nowrap; /* Ensures text stays in one line */
+  text-align: center; /* Ensures text is centered */
+  height: 100px; /* Fixed height to ensure consistency */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: relative; /* Ensures relative positioning for scrolling effect */
 }
 
 .skill-item:hover {
@@ -45,6 +58,32 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Typing animation with scrolling effect */
+.typing-animation {
+  font-family: monospace;
+  white-space: nowrap;
+  display: inline-block;
+  position: absolute; /* Allows absolute positioning for scrolling */
+  left: 100%; /* Start just outside of the skill box */
+  animation: scroll 8s linear infinite; /* Default speed for shorter syntax */
+}
+
+.skill-item.java .typing-animation {
+  animation-duration: 16s; /* Make the Java animation slower */
+}
+
+
+/* Scrolling effect for syntax */
+@keyframes scroll {
+  from {
+    transform: translateX(0%); /* Start fully outside on the right */
+  }
+  to {
+    transform: translateX(-200%); /* Move fully off to the left */
+  }
+}
+
+/* Timeline section */
 .about-timeline {
   margin-top: 40px;
 }
@@ -58,6 +97,22 @@
 .timeline-item {
   padding: 20px;
   background-color: #fff;
-  border-left: 5px solid #E63946;
+  border-left: 5px solid #E63946; /* Brand red color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-10px); /* Move the item up slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+}
+
+.timeline-item ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.timeline-item ul li {
+  list-style-type: disc;
+  margin-bottom: 5px;
 }
