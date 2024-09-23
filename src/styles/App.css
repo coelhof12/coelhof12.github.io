@@ -12,15 +12,16 @@
 }
 
 .about-intro h1 {
-  font-size: 2.5rem;
-  color: #E63946; /* Brand red color */
+  font-family: 'Montserrat', sans-serif;
+  color: #E63946; /* Brand red */
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .about-intro p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
+  color: #1D1D1D; /* Dark text for readability */
 }
 
 /* Skills overview section */
@@ -72,7 +73,6 @@
   animation-duration: 16s; /* Make the Java animation slower */
 }
 
-
 /* Scrolling effect for syntax */
 @keyframes scroll {
   from {
@@ -85,26 +85,69 @@
 
 /* Timeline section */
 .about-timeline {
+  position: relative;
   margin-top: 40px;
+  padding-left: 40px; /* Add space for the vertical line */
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  padding-left: 40px; /* Space to the left for the vertical line */
 }
 
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px; /* Adjust this to center the line */
+  width: 2px;
+  height: 100%;
+  background-color: #E63946; /* Brand red color for the line */
+}
+
+/* Timeline item styling */
 .timeline-item {
+  position: relative;
   padding: 20px;
   background-color: #fff;
-  border-left: 5px solid #E63946; /* Brand red color */
+  border-left: 5px solid #E63946; /* Left border for the entry */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(50px); /* Start slightly below */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth animation */
+}
+
+.timeline-item h3 {
+  color: #E63946; /* Brand red */
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .timeline-item:hover {
   transform: translateY(-10px); /* Move the item up slightly */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+}
+
+/* Circle bullet at the center of the line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: #E63946; /* Brand red */
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #F5F5F5; /* White outline around the circle */
+}
+
+.timeline-item.show {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide up to normal position */
 }
 
 .timeline-item ul {

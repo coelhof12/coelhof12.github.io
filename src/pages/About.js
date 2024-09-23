@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/App.css";
 
 const About = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const timelineRef = useRef(null); // Ref for the timeline section
 
   // Syntax to display when hovering over each skill
   const skillSyntax = {
@@ -21,6 +22,24 @@ const About = () => {
     MySQL: "4s",
     Java: "16s", // Keep the Java speed as is since it's perfect
   };
+
+  useEffect(() => {
+    const timelineItems = document.querySelectorAll(".timeline-item"); // Select all timeline items
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show"); // Add 'show' class when in view
+        }
+      });
+    });
+
+    timelineItems.forEach((item) => observer.observe(item)); // Observe each timeline item
+
+    return () => {
+      timelineItems.forEach((item) => observer.unobserve(item)); // Clean up observer on unmount
+    };
+  }, []);
 
   return (
     <div className="about-container">
@@ -66,7 +85,7 @@ const About = () => {
       {/* Timeline Section */}
       <section className="about-timeline">
         <h2>My Journey</h2>
-        <div className="timeline">
+        <div ref={timelineRef} className="timeline">
           <div className="timeline-item">
             <h3>2024</h3>
             <p>
