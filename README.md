@@ -1,6 +1,6 @@
 # My Personal Portfolio (SPA)
 
-![Project Cover](./public/assets/images/Repo_Cover.jpg)
+![Project Cover](https://raw.githubusercontent.com/coelhof12/coelhof12.github.io/refs/heads/main/public/assets/images/Repo_Cover.jpg)
 
 ## Additional Information
 
