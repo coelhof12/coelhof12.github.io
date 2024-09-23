@@ -1,3 +1,4 @@
+/* Home Page Base */
 .home {
   text-align: center;
   padding: 20px;
@@ -11,15 +12,17 @@
 }
 
 .banner-image {
-  width: 70%; 
-  height: auto; 
+  width: 70%;
+  height: auto;
   object-fit: cover;
-
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Intro section styles */
 .intro-section {
   margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .intro-section h1 {
@@ -33,9 +36,101 @@
   margin-bottom: 20px;
 }
 
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modern-button {
+  margin: 10px;
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  color: #F5F5F5;
+  background-color: #E63946;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.modern-button:hover {
+  background-color: #D62828;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.modern-button:active {
+  background-color: #B71515;
+  transform: translateY(1px);
+}
+
+/* Development Process Section */
+.development-process {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center section content horizontally */
+  justify-content: center; /* Center section content vertically */
+}
+
+.development-process h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #E63946;
+}
+
+/* Grid for the steps */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  justify-content: center; /* Center grid items */
+  max-width: 1200px; /* Limit the width of the grid */
+  width: 100%; /* Ensure the grid takes full available width */
+}
+
+.process-step {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure the step takes full width */
+  max-width: 250px; /* Limit the width of each step */
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.process-step img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.process-step h3 {
+  color: #E63946;
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  font-size: 1rem;
+  color: #333;
+}
+
 /* GitHub Stats */
 .github-stats, .github-languages {
   margin: 40px 0;
+  animation: fadeInUp 1.2s ease-in-out;
 }
 
 .github-stats img, .github-languages img {
@@ -44,52 +139,39 @@
   border-radius: 10px;
 }
 
-/* Key Skills Highlight */
-.skills-highlight {
-  margin-top: 40px;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.skills-highlight ul {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-highlight li {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  color: #333;
-}
-
-/* Personal Branding */
-.personal-branding {
-  margin-top: 40px;
-  font-size: 1.2rem;
-  color: #1D1D1D;
-}
-
-/* Featured Project */
-.featured-project {
-  margin-top: 40px;
-}
-
-.featured-project p {
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.featured-project .cta-button {
-  margin-top: 10px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
   .intro-section h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .cta-buttons {
-      flex-direction: column;
+    flex-direction: column;
+  }
+
+  .projects-grid, .process-grid {
+    flex-direction: column;
+    gap: 20px;
   }
 }
-
-  
