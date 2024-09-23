@@ -1,26 +1,30 @@
+/* General container styling */
 .about-container {
   padding: 40px;
   color: #1D1D1D;
   background-color: #F5F5F5;
 }
 
+/* Introduction section */
 .about-intro {
   text-align: center;
   margin-bottom: 40px;
 }
 
 .about-intro h1 {
-  font-size: 2.5rem;
-  color: #E63946; /* Brand red color */
+  font-family: 'Montserrat', sans-serif;
+  color: #E63946; /* Brand red */
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .about-intro p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
+  color: #1D1D1D; /* Dark text for readability */
 }
 
+/* Skills overview section */
 .about-skills {
   margin: 40px 0;
 }
@@ -38,6 +42,16 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevents overflow of content */
+  white-space: nowrap; /* Ensures text stays in one line */
+  text-align: center; /* Ensures text is centered */
+  height: 100px; /* Fixed height to ensure consistency */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: relative; /* Ensures relative positioning for scrolling effect */
 }
 
 .skill-item:hover {
@@ -45,19 +59,103 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Typing animation with scrolling effect */
+.typing-animation {
+  font-family: monospace;
+  white-space: nowrap;
+  display: inline-block;
+  position: absolute; /* Allows absolute positioning for scrolling */
+  left: 100%; /* Start just outside of the skill box */
+  animation: scroll 8s linear infinite; /* Default speed for shorter syntax */
+}
+
+.skill-item.java .typing-animation {
+  animation-duration: 16s; /* Make the Java animation slower */
+}
+
+/* Scrolling effect for syntax */
+@keyframes scroll {
+  from {
+    transform: translateX(0%); /* Start fully outside on the right */
+  }
+  to {
+    transform: translateX(-200%); /* Move fully off to the left */
+  }
+}
+
+/* Timeline section */
 .about-timeline {
+  position: relative;
   margin-top: 40px;
+  padding-left: 40px; /* Add space for the vertical line */
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  padding-left: 40px; /* Space to the left for the vertical line */
 }
 
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px; /* Adjust this to center the line */
+  width: 2px;
+  height: 100%;
+  background-color: #E63946; /* Brand red color for the line */
+}
+
+/* Timeline item styling */
 .timeline-item {
+  position: relative;
   padding: 20px;
   background-color: #fff;
-  border-left: 5px solid #E63946;
+  border-left: 5px solid #E63946; /* Left border for the entry */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(50px); /* Start slightly below */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth animation */
+}
+
+.timeline-item h3 {
+  color: #E63946; /* Brand red */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-item:hover {
+  transform: translateY(-10px); /* Move the item up slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+}
+
+/* Circle bullet at the center of the line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: #E63946; /* Brand red */
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #F5F5F5; /* White outline around the circle */
+}
+
+.timeline-item.show {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide up to normal position */
+}
+
+.timeline-item ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.timeline-item ul li {
+  list-style-type: disc;
+  margin-bottom: 5px;
 }
