@@ -14,13 +14,13 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1"
   },
- "scripts": {
-  "start": "react-scripts start",
-  "prebuild": "node fetchGitHubData.js || echo 'Skipping GitHub data fetch in production'",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-},
+  "scripts": {
+    "start": "react-scripts start",
+    "prebuild": "node fetchGitHubData.js || echo 'Skipping GitHub data fetch in production'",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
