@@ -1,6 +1,6 @@
 # My Personal Portfolio (SPA)
 
-![Project Cover](./images/project-screenshot.png)
+![Project Cover](./public/assets/images/Repo_Cover.jpg)
 
 ## Additional Information
 
