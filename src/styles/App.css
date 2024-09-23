@@ -13,7 +13,7 @@
 
 .about-intro h1 {
   font-family: 'Montserrat', sans-serif;
-  color: #E63946; /* Brand red */
+  color: #E63946; 
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -21,7 +21,7 @@
 .about-intro p {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
-  color: #1D1D1D; /* Dark text for readability */
+  color: #1D1D1D; 
 }
 
 /* Skills overview section */
@@ -44,14 +44,14 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   font-family: Arial, sans-serif;
-  overflow: hidden; /* Prevents overflow of content */
-  white-space: nowrap; /* Ensures text stays in one line */
-  text-align: center; /* Ensures text is centered */
-  height: 100px; /* Fixed height to ensure consistency */
-  display: flex; /* Use flexbox to center content */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  position: relative; /* Ensures relative positioning for scrolling effect */
+  overflow: hidden; 
+  white-space: nowrap;
+  text-align: center; 
+  height: 100px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
 }
 
 .skill-item:hover {
@@ -64,22 +64,22 @@
   font-family: monospace;
   white-space: nowrap;
   display: inline-block;
-  position: absolute; /* Allows absolute positioning for scrolling */
-  left: 100%; /* Start just outside of the skill box */
-  animation: scroll 8s linear infinite; /* Default speed for shorter syntax */
+  position: absolute; 
+  left: 100%; 
+  animation: scroll 8s linear infinite; 
 }
 
 .skill-item.java .typing-animation {
-  animation-duration: 16s; /* Make the Java animation slower */
+  animation-duration: 16s; 
 }
 
 /* Scrolling effect for syntax */
 @keyframes scroll {
   from {
-    transform: translateX(0%); /* Start fully outside on the right */
+    transform: translateX(0%); 
   }
   to {
-    transform: translateX(-200%); /* Move fully off to the left */
+    transform: translateX(-200%);
   }
 }
 
@@ -87,7 +87,7 @@
 .about-timeline {
   position: relative;
   margin-top: 40px;
-  padding-left: 40px; /* Add space for the vertical line */
+  padding-left: 40px; 
 }
 
 .timeline {
@@ -95,7 +95,7 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
-  padding-left: 40px; /* Space to the left for the vertical line */
+  padding-left: 40px;
 }
 
 /* Vertical line */
@@ -103,10 +103,10 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 20px; /* Adjust this to center the line */
+  left: 20px;
   width: 2px;
   height: 100%;
-  background-color: #E63946; /* Brand red color for the line */
+  background-color: #E63946; 
 }
 
 /* Timeline item styling */
@@ -114,22 +114,22 @@
   position: relative;
   padding: 20px;
   background-color: #fff;
-  border-left: 5px solid #E63946; /* Left border for the entry */
+  border-left: 5px solid #E63946; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Initially hidden for animation */
-  transform: translateY(50px); /* Start slightly below */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth animation */
+  opacity: 0; 
+  transform: translateY(50px); 
+  transition: opacity 0.6s ease, transform 0.6s ease; 
 }
 
 .timeline-item h3 {
-  color: #E63946; /* Brand red */
+  color: #E63946;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .timeline-item:hover {
-  transform: translateY(-10px); /* Move the item up slightly */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 /* Circle bullet at the center of the line */
@@ -140,14 +140,14 @@
   top: 20px;
   width: 15px;
   height: 15px;
-  background-color: #E63946; /* Brand red */
+  background-color: #E63946; 
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #F5F5F5; /* White outline around the circle */
+  box-shadow: 0 0 0 4px #F5F5F5; 
 }
 
 .timeline-item.show {
   opacity: 1; /* Fade in */
-  transform: translateY(0); /* Slide up to normal position */
+  transform: translateY(0); 
 }
 
 .timeline-item ul {

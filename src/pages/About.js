@@ -3,7 +3,7 @@ import "../styles/App.css";
 
 const About = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
-  const timelineRef = useRef(null); // Ref for the timeline section
+  const timelineRef = useRef(null);
 
   // Syntax to display when hovering over each skill
   const skillSyntax = {
@@ -16,28 +16,28 @@ const About = () => {
 
   // Adjusting the durations to make other skills faster
   const skillDurations = {
-    HTML: "5s", // Shorter time for faster text scrolling
+    HTML: "5s",
     CSS: "4s",
-    JavaScript: "6s", // Slightly longer for JavaScript
+    JavaScript: "6s",
     MySQL: "4s",
-    Java: "16s", // Keep the Java speed as is since it's perfect
+    Java: "16s",
   };
 
   useEffect(() => {
-    const timelineItems = document.querySelectorAll(".timeline-item"); // Select all timeline items
+    const timelineItems = document.querySelectorAll(".timeline-item");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show"); // Add 'show' class when in view
+          entry.target.classList.add("show");
         }
       });
     });
 
-    timelineItems.forEach((item) => observer.observe(item)); // Observe each timeline item
+    timelineItems.forEach((item) => observer.observe(item));
 
     return () => {
-      timelineItems.forEach((item) => observer.unobserve(item)); // Clean up observer on unmount
+      timelineItems.forEach((item) => observer.unobserve(item));
     };
   }, []);
 
@@ -63,14 +63,14 @@ const About = () => {
           {Object.keys(skillSyntax).map((skill) => (
             <div
               key={skill}
-              className={`skill-item ${skill.toLowerCase()}`} // Adding dynamic class based on skill name
+              className={`skill-item ${skill.toLowerCase()}`}
               onMouseEnter={() => setHoveredSkill(skill)}
               onMouseLeave={() => setHoveredSkill(null)}
             >
               {hoveredSkill === skill ? (
                 <span
                   className="typing-animation"
-                  style={{ animationDuration: skillDurations[skill] }} // Dynamically set animation duration
+                  style={{ animationDuration: skillDurations[skill] }}
                 >
                   {skillSyntax[skill]}
                 </span>
