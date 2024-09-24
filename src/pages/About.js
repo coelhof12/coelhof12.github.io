@@ -230,6 +230,20 @@ const About = () => {
               </li>
             </ul>
           </div>
+          <div className="timeline-item">
+            <h3>2008 - 2015</h3>
+            <p>
+              <strong>Science and Technologies Course</strong> at Colégio Nossa
+              Senhora da Assunção
+            </p>
+            <ul>
+              <li>
+                Science and Technologies course, with optional subjects in
+                Physics and Descriptive Geometry. Also served as president of
+                the student association.
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
