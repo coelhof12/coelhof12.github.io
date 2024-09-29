@@ -2,7 +2,7 @@
 
 ![Project Cover](https://raw.githubusercontent.com/coelhof12/coelhof12.github.io/refs/heads/main/public/assets/images/Repo_Cover.jpg)
 
-## Additional Information
+## The Concept
 
 A responsive Single Page Application (SPA) portfolio built with React to showcase my skills as a Full-Stack Developer. This project features dynamic integration with the GitHub API to automatically display public repositories, smooth animations, modern design, and seamless navigation. The site will also include a language selector powered by Google Translate to provide a multilingual experience for visitors.
 
