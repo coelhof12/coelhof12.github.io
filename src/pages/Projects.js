@@ -85,7 +85,8 @@ const ProjectCard = ({ project, index }) => {
         </div>
         <div className="project-card-back">
           <p>
-            {project.additionalInfo || "No additional information available"}
+            {project.additionalInfo ||
+              "This project was developed by a group. Visit the Github Project for more information"}
           </p>
         </div>
       </div>
