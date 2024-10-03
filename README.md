@@ -16,7 +16,7 @@ The primary goal of this portfolio is to present my skills, experience, and proj
 
 ## Current Status
 
-🚧 **Coming Soon!** The site is under development, visinting the website url will take you to a temporary 'Coming Soon' page.
+🚧 The site is under development, final version soon.
 
 ## Key Features (Planned)
 
