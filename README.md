@@ -1,24 +1,24 @@
-🌍 # My Personal Portfolio Website (SPA) 
+# 🌍 My Personal Portfolio Website (SPA) 
 
 ![Project Cover](https://raw.githubusercontent.com/coelhof12/coelhof12.github.io/refs/heads/main/public/assets/images/Repo_Cover.jpg)
 
-💡 ## The Concept 
+## 💡 The Concept 
 
 A responsive Single Page Application (SPA) portfolio built with React to showcase my skills as a Full-Stack Developer. This project features dynamic integration with the GitHub API to automatically display public repositories, smooth animations, modern design, and seamless navigation. The site will also include a language selector powered by Google Translate to provide a multilingual experience for visitors.
 
-📖 ## Introduction
+## 📖 Introduction
 
 Welcome to my website! This project is a **Single Page Application** built to showcase my jorney as a full-stack developer. The website will feature dynamic project updates, demonstrating my technical capabilities in building scalable and performant web applications.
 
-🎯 ## Purpose
+## 🎯 Purpose
 
 The primary goal of this portfolio is to present my skills, experience, and projects. The site is structured to be continuously updated with new projects, starting with the SPA itself, which is currently in progress. Once the project is fully developed, it will integrate multiple technologies and APIs, ensuring a modern and engaging user experience.
 
-📊 ## Current Status
+## 📊 Current Status
 
 🚧 The site is under development, final version soon.
 
-📝 ## Key Features (Planned) 📝
+## 📝 Key Features (Planned)
 
 - **Dynamic Project Management**: Projects will be fetched and displayed dynamically using JSON, and hopely later hopefully transitioned to a scalable database (MySQL).
 - **Google Translate API Integration**: The site will be accessible in multiple languages through a language selector.
@@ -27,7 +27,7 @@ The primary goal of this portfolio is to present my skills, experience, and proj
 - **Downloadable CV**: Visitors will be able to download my CV directly from the site.
 - **Blog Section**: Future plans include a blog to share insights, tutorials, and personal experiences.
 
-🛠️ ## Technologies Used
+## 🛠️ Technologies Used
 
 - **React**
 - **GitHub API**
@@ -37,11 +37,11 @@ The primary goal of this portfolio is to present my skills, experience, and proj
 - **GitHub Pages**
 -
 
-⚖️ ## Legal Notice
+## ⚖️ Legal Notice
 
 The site will include a Privacy Policy and Cookie Consent banner to comply with data protection laws, especially since Google Analytics and Formspree are being used.
 
-🚀 ## Deployment
+## 🚀 Deployment
 
 The project is hosted on **GitHub Pages**, and the live version will be available soon.
 
