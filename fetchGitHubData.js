@@ -56,7 +56,7 @@ const token = process.env.REACT_APP_GITHUB_TOKEN;
             ).toString("utf-8");
             const imageMatch = readmeContent.match(/!\[.*\]\((.*)\)/);
             const additionalInfoMatch = readmeContent.match(
-              /## The Concept([\s\S]*?)(##|$)/
+              /## 💡 The Concept([\s\S]*?)(##|$)/
             );
 
             image = imageMatch ? imageMatch[1] : null;
