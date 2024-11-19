@@ -90,34 +90,21 @@
 
 @media (max-width: 768px) {
   .projects-grid {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    gap: 0;
-  }
-
-  .project-card {
-    display: block;
-    width: calc(100% - 40px);
-    max-width: 400px;
-    margin: 20px auto;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-image {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+    gap: 20px;
   }
 
   .projects-container {
-    width: 100%;
     padding: 10px;
-    box-sizing: border-box; 
   }
 
-  body {
-    overflow-x: hidden;
+  .project-card {
+    padding: 15px;
+    margin: 0 auto 20px;
+    width: 95%;
+    max-width: 400px;
+  }
+
+  .project-image {
+    max-height: 180px;
   }
 }
