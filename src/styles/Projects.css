@@ -88,19 +88,23 @@
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* Ensure one card per row */
+    gap: 20px;
+  }
+
+  .projects-container {
+    padding: 10px;
   }
 
   .project-card {
-    width: 90%; /* Use relative width */
-    max-width: 500px; /* Prevent cards from becoming too large */
-    height: auto; /* Let height adjust to content */
-    margin: 0 auto; /* Center cards on smaller screens */
+    padding: 15px; 
+    margin: 0 auto 20px; 
+    width: 95%;
+    max-width: 400px;
   }
 
   .project-image {
-    max-height: 200px; /* Adjust image height for mobile */
+    max-height: 180px; 
   }
 }
