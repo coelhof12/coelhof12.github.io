@@ -2,15 +2,15 @@
 .projects-container {
   padding: 20px;
   text-align: center;
-  flex: 1; /* Allows the container to take up the remaining height */
+  flex: 1;
 }
 
 /* Grid layout for projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Force two cards per row */
-  gap: 50px 30px; /* Vertical and horizontal gap, with increased vertical spacing */
-  justify-content: center; /* Center the grid items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 30px;
+  justify-content: center; 
 }
 
 /* Project card styling */
@@ -23,9 +23,9 @@
   background-color: #fff;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  height: 500px; /* Increase height to prevent content from being cramped */
-  width: 550px; /* Increase width to make cards larger */
-  margin: 0 auto; /* Center the individual cards */
+  height: 500px;
+  width: 550px;
+  margin: 0 auto;
 }
 
 /* Inner content for the card */
@@ -69,7 +69,7 @@
 /* Ensure consistent image sizes */
 .project-image {
   width: 100%;
-  max-height: 250px; /* Slightly larger image space */
+  max-height: 250px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -90,21 +90,19 @@
 
 @media (max-width: 768px) {
   .projects-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .projects-container {
-    padding: 10px;
-  }
-
   .project-card {
-    padding: 15px; 
-    margin: 0 auto 20px; 
-    width: 95%;
+    width: 100%;
     max-width: 400px;
+    margin: 0 auto;
+    height: auto;
   }
 
   .project-image {
-    max-height: 180px; 
+    max-height: 180px;
+    object-fit: cover;
   }
 }
