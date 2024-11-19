@@ -75,7 +75,7 @@
   margin-bottom: 10px;
 }
 
-/* Add this to prevent the back from showing prematurely */
+/* Added this to prevent the back from showing prematurely */
 .project-card-back {
   display: none;
 }
@@ -88,14 +88,19 @@
   display: none;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 1024px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* One card per row on smaller screens */
+    grid-template-columns: 1fr; /* Ensure one card per row */
   }
 
   .project-card {
-    width: 100%;
-    height: auto; /* Adjust the height to fit the content */
+    width: 90%; /* Use relative width */
+    max-width: 500px; /* Prevent cards from becoming too large */
+    height: auto; /* Let height adjust to content */
+    margin: 0 auto; /* Center cards on smaller screens */
+  }
+
+  .project-image {
+    max-height: 200px; /* Adjust image height for mobile */
   }
 }
