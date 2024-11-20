@@ -45,4 +45,4 @@ The site will include a Privacy Policy and Cookie Consent banner to comply with 
 
 The project is hosted on **GitHub Pages**, and the live version will be available soon.
 
-Thank you for visiting!
+Thank you for visiting! 
