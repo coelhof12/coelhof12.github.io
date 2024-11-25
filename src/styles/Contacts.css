@@ -1,11 +1,15 @@
 .contact-container {
   text-align: center;
   padding: 40px;
+  width: 100%; /* Ensure full width */
 }
 
 .form-wrapper {
   position: relative;
-  display: inline-block;
+  display: block; /* Changed from inline-block */
+  width: 100%;
+  max-width: 800px; /* Adjust as needed */
+  margin: 0 auto; /* Center the form */
   border-radius: 8px;
   overflow: hidden;
 }
@@ -40,7 +44,8 @@
 .contact-form {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
+  width: 100%; /* Ensure the form takes up the full width */
+  max-width: 800px; /* Increase the max-width */
   margin: 0 auto;
   padding: 20px;
   animation: fadeIn 1s ease;
@@ -124,6 +129,10 @@
 @media (max-width: 768px) {
   .contact-form {
     padding: 15px;
+  }
+
+  .form-wrapper {
+    max-width: 90%; /* Adjust for smaller screens */
   }
 }
 
