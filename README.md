@@ -6,6 +6,12 @@
 
 A responsive Single Page Application (SPA) portfolio built with React to showcase my skills as a Full-Stack Developer. This project features dynamic integration with the GitHub API to automatically display public repositories, smooth animations, modern design, and seamless navigation. The site will also include a language selector powered by Google Translate to provide a multilingual experience for visitors.
 
+## 🎥 Website Demo
+
+<p align="left"> 
+   <img width="920" height="600" src="https://raw.githubusercontent.com/coelhof12/coelhof12.github.io/refs/heads/main/public/assets/coelhof12.github.io_demo.gif"> 
+</p>
+
 ## 📖 Introduction
 
 Welcome to my website! This project is a **Single Page Application** built to showcase my jorney as a full-stack developer. The website will feature dynamic project updates, demonstrating my technical capabilities in building scalable and performant web applications.
