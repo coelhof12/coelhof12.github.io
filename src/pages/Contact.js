@@ -10,7 +10,6 @@ function Contact() {
         <div className="contact-info">
           <p>Feel free to reach out for collaborations or just a friendly hello!</p>
           <p>Email: example@domain.com</p>
-          <p>Phone: +123 456 7890</p>
         </div>
         <div className="form-wrapper">
           <form className="contact-form">
