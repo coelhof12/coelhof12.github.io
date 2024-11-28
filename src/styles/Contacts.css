@@ -42,6 +42,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
 }
 
 .contact-form {
@@ -69,7 +70,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #E63946;
-  box-shadow: 0 0 8px rgba(230, 57, 70, 0.5);
+  box-shadow: 0 4px 8px rgba(230, 57, 70, 0.5);
   outline: none;
 }
 
@@ -108,6 +109,19 @@
   transform: translateY(-2px);
 }
 
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .contact-content {
     flex-direction: column;

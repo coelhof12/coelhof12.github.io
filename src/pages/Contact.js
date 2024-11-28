@@ -9,9 +9,9 @@ function Contact() {
       <div className="contact-content">
         <div className="contact-info">
           <p>Feel free to reach out for collaborations or just a friendly hello!</p>
-          <p>Email: example@domain.com</p>
+          <p>Email: coelho1@ua.pt</p>
         </div>
-        <div className="form-wrapper">
+        <div className="form-wrapper fadeIn">
           <form className="contact-form">
             <div className="form-group">
               <input type="text" id="name" required />
