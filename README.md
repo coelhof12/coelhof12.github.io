@@ -37,9 +37,7 @@ The site is under development 🚧 Final version soon is comming very soon.
 - **GitHub API**
 - **React Spring**
 - **CSS Grid/Flexbox**
-- **Google Translate API**
 - **GitHub Pages**
--
 
 ## ⚖️ Legal Notice
 
