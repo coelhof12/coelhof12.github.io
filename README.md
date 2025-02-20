@@ -30,8 +30,6 @@ The site is under development 🚧 Final version soon is comming very soon.
 - **Google Translate API Integration**: The site will be accessible in multiple languages through a language selector.
 - **Interactive Project Cards**: Projects will have sofisticated animations, expanding to show detailed information and images.
 - **Custom Contact Form**: A unique, animated contact form powered by Formspree.
-- **Downloadable CV**: Visitors will be able to download my CV directly from the site.
-- **Blog Section**: Future plans include a blog to share insights, tutorials, and personal experiences.
 
 ## 🛠️ Technologies Used
 
