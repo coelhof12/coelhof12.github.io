@@ -14,7 +14,7 @@ A Single Page Application (SPA) portfolio built with React to showcase my skills
 
 ## 📖 Introduction
 
-Welcome to my website! This project is a **Single Page Application** built to showcase my jorney as a full-stack developer. The website will feature dynamic project updates, demonstrating my technical capabilities in building scalable and performant web applications.
+Welcome to my website! This project is a **Single Page Application** built to showcase my journey as a full-stack developer. The website will feature dynamic project updates, demonstrating my technical capabilities in building scalable and performant web applications.
 
 ## 🎯 Purpose
 
@@ -22,13 +22,13 @@ The primary goal of this portfolio is to present my skills, experience, and proj
 
 ## 📊 Current Status
 
-The site is under development 🚧 Final version soon is comming very soon.
+The site is under development 🚧 The final version is coming soon.
 
 ## 📝 Key Features (Planned)
 
-- **Dynamic Project Management**: Projects will be fetched and displayed dynamically using JSON, and hopely later hopefully transitioned to a scalable database (MySQL).
+- **Dynamic Project Management**: Projects will be fetched and displayed dynamically using JSON, and hopefully later transitioned to a scalable database (MySQL).
 - **Google Translate API Integration**: The site will be accessible in multiple languages through a language selector.
-- **Interactive Project Cards**: Projects will have sofisticated animations, expanding to show detailed information and images.
+- **Interactive Project Cards**: Projects will have sophisticated animations, expanding to show detailed information and images.
 - **Custom Contact Form**: A unique, animated contact form powered by Formspree.
 
 ## 🛠️ Technologies Used
