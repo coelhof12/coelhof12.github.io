@@ -47,4 +47,14 @@ The site will include a Privacy Policy and Cookie Consent banner to comply with 
 
 The project is hosted on **GitHub Pages**, and the live version will be available soon.
 
-Thank you for visiting! 
+## 🚧 Local Development
+
+1. Install **Node.js 16** or higher.
+2. Run `npm install` to install dependencies.
+3. To fetch project information from GitHub, create a `.env` file with
+   `REACT_APP_GITHUB_TOKEN=<your_personal_token>`.
+   Run `node fetchGitHubData.js` to generate `src/githubData.json`.
+4. Start the development server with `npm start`.
+5. Build the production bundle with `npm run build`.
+
+Thank you for visiting!

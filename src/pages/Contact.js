@@ -14,17 +14,21 @@ function Contact() {
               <p>Email: coelho1@ua.pt</p>
             </div>
             <div className="form-wrapper fadeIn">
-              <form className="contact-form">
+              <form
+                className="contact-form"
+                action="https://formspree.io/f/xbjnwrlv"
+                method="POST"
+              >
                 <div className="form-group">
-                  <input type="text" id="name" required />
+                  <input type="text" id="name" name="name" required />
                   <label htmlFor="name">Name</label>
                 </div>
                 <div className="form-group">
-                  <input type="email" id="email" required />
+                  <input type="email" id="email" name="email" required />
                   <label htmlFor="email">Email</label>
                 </div>
                 <div className="form-group">
-                  <textarea id="message" rows="5" required></textarea>
+                  <textarea id="message" name="message" rows="5" required></textarea>
                   <label htmlFor="message">Message</label>
                 </div>
                 <button type="submit" className="submit-button">Send Message</button>

@@ -14,7 +14,10 @@ const Navbar = () => {
     <nav className={`navbar ${isMobileMenuOpen ? "open" : ""}`}>
       <div className="navbar-logo">
         <Link to="/">
-          <img src="../assets/images/FC_logo.png" alt="Logo" />
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/images/FC_logo.png`}
+            alt="Logo"
+          />
         </Link>
       </div>
       <ul
