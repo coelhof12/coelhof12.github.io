@@ -8,7 +8,7 @@ function Home() {
       {/* Banner Image */}
       <div className="banner-container">
         <img
-          src={`${process.env.PUBLIC_URL}/assets/images/me_banner.jpg`}
+          src="../assets/images/me_banner.jpg"
           alt="Francisco Coelho Banner"
           className="banner-image"
         />
@@ -31,7 +31,7 @@ function Home() {
             Get in Touch
           </a>
           <a
-            href={`${process.env.PUBLIC_URL}/assets/my-cv.pdf`}
+            href="/assets/my-cv.pdf"
             className="modern-button download-cv"
             download
           >
@@ -45,46 +45,31 @@ function Home() {
         <h2>How I Work</h2>
         <div className="process-grid">
           <div className="process-step">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/icons/research.jpg`}
-              alt="Research Icon"
-            />
+            <img src="/assets/images/icons/research.jpg" alt="Research Icon" />
             <h3>Research</h3>
             <p>Understanding the requirements and gathering information.</p>
           </div>
           <div className="process-step">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/icons/design.jpg`}
-              alt="Design Icon"
-            />
+            <img src="/assets/images/icons/design.jpg" alt="Design Icon" />
             <h3>Design</h3>
             <p>
               Creating wireframes and prototypes that outline user experience.
             </p>
           </div>
           <div className="process-step">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/icons/develop.jpg`}
-              alt="Develop Icon"
-            />
+            <img src="/assets/images/icons/develop.jpg" alt="Develop Icon" />
             <h3>Develop</h3>
             <p>
               Writing code and building the application’s core functionality.
             </p>
           </div>
           <div className="process-step">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/icons/test.jpg`}
-              alt="Test Icon"
-            />
+            <img src="/assets/images/icons/test.jpg" alt="Test Icon" />
             <h3>Test</h3>
             <p>Ensuring the product is free from bugs and works as expected.</p>
           </div>
           <div className="process-step">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/icons/deploy.jpg`}
-              alt="Deploy Icon"
-            />
+            <img src="/assets/images/icons/deploy.jpg" alt="Deploy Icon" />
             <h3>Deploy</h3>
             <p>Launching the product and making it available to users.</p>
           </div>
