@@ -57,7 +57,7 @@
 }
 
 .modern-button:hover {
-  background-color: #D62828;
+  background-color: #34626c;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
 }
