@@ -27,7 +27,7 @@
 
 .intro-section h1 {
   font-size: 2.5rem;
-  color: #E63946;
+  color: #34626c;
   margin-bottom: 10px;
 }
 
@@ -48,7 +48,7 @@
   padding: 12px 25px;
   font-size: 1.1rem;
   color: #F5F5F5;
-  background-color: #E63946;
+  background-color: #34626c;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -82,7 +82,7 @@
 .development-process h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #E63946;
+  color: #34626c;
 }
 
 /* Grid for the steps */
@@ -118,7 +118,7 @@
 }
 
 .process-step h3 {
-  color: #E63946;
+  color: #34626c;
   margin-bottom: 10px;
 }
 

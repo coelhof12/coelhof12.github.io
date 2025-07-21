@@ -80,7 +80,7 @@ function Home() {
       <div className="github-stats">
         <h2>My GitHub Stats</h2>
         <img
-          src="https://github-readme-stats.vercel.app/api?username=coelhof12&show_icons=true&hide_border=true&bg_color=1D1D1D&title_color=E63946&text_color=F5F5F5&icon_color=E63946"
+          src="https://github-readme-stats.vercel.app/api?username=coelhof12&show_icons=true&hide_border=true&bg_color=1D1D1D&title_color=34626c&text_color=F5F5F5&icon_color=34626c"
           alt="GitHub Stats"
         />
       </div>
@@ -88,7 +88,7 @@ function Home() {
       {/* GitHub Top Languages Section */}
       <div className="github-languages">
         <img
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=coelhof12&layout=compact&hide_border=true&bg_color=1D1D1D&title_color=E63946&text_color=F5F5F5&icon_color=E63946"
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=coelhof12&layout=compact&hide_border=true&bg_color=1D1D1D&title_color=34626c&text_color=F5F5F5&icon_color=34626c"
           alt="Top Languages"
         />
       </div>

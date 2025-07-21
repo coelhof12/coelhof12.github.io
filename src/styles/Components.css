@@ -41,13 +41,13 @@ body, .main-content {
 }
 
 .navbar-links a:hover {
-  background-color: #E63946;
+  background-color: #34626c;
   color: #fff;
 }
 
 /* Active link styling */
 .navbar-links a.active {
-  color: #E63946;
+  color: #34626c;
   font-weight: bold;
 }
 
@@ -134,7 +134,7 @@ body, .main-content {
 }
 
 .footer-links a:hover {
-  color: #E63946;
+  color: #34626c;
 }
 
 .footer-copyright p {

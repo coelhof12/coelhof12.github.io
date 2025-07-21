@@ -21,13 +21,13 @@ body {
 h1 {
   font-size: 2.5rem;
   margin: 20px 0;
-  color: #E63946;
+  color: #34626c;
 }
 
 h2 {
   font-size: 2rem;
   margin: 18px 0;
-  color: #E63946;
+  color: #34626c;
 }
 
 h3 {
@@ -51,7 +51,7 @@ p {
 }
 
 a {
-  color: #E63946;
+  color: #34626c;
   text-decoration: none;
 }
 
@@ -65,7 +65,7 @@ a:hover {
   padding: 12px 25px;
   font-size: 1.1rem;
   color: #F5F5F5;
-  background-color: #E63946;
+  background-color: #34626c;
   border: none;
   border-radius: 30px;
   cursor: pointer;
