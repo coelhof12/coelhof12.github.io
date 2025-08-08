@@ -11,10 +11,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${isMobileMenuOpen ? "open" : ""}`}>
+    <nav
+      className={`navbar ${isMobileMenuOpen ? "open" : ""}`}
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="navbar-logo">
         <Link to="/">
-          <img src="../assets/images/FC_logo.png" alt="Logo" />
+          <img
+            src="../assets/images/FC_logo.png"
+            alt="Francisco Coelho logo"
+            loading="lazy"
+          />
         </Link>
       </div>
       <ul
@@ -52,14 +60,16 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <div
+      <button
         className={`navbar-menu-icon ${isMobileMenuOpen ? "open" : ""}`}
         onClick={toggleMobileMenu}
+        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isMobileMenuOpen}
       >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
-      </div>
+      </button>
     </nav>
   );
 };

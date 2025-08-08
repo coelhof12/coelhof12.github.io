@@ -54,7 +54,7 @@
 /* Ensure the back is hidden initially */
 .project-card-back {
   transform: rotateY(180deg);
-  background-color: #f5f5f5;
+  background-color: var(--color-light);
   padding: 20px;
 }
 

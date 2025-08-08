@@ -1,5 +1,13 @@
 /* Global styles */
 
+
+:root {
+  --color-light: #F5F5F5;
+  --color-dark: #1D1D1D;
+  --color-primary: #34626c;
+  --color-accent: #B71515;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +15,8 @@
 }
 
 body {
-  background-color: #F5F5F5; /* White background for the site */
-  color: #1D1D1D; /* Black text */
+  background-color: var(--color-light); /* White background for the site */
+  color: var(--color-dark); /* Black text */
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -21,25 +29,25 @@ body {
 h1 {
   font-size: 2.5rem;
   margin: 20px 0;
-  color: #34626c;
+  color: var(--color-primary);
 }
 
 h2 {
   font-size: 2rem;
   margin: 18px 0;
-  color: #34626c;
+  color: var(--color-primary);
 }
 
 h3 {
   font-size: 1.75rem;
   margin: 16px 0;
-  color: #1D1D1D;
+  color: var(--color-dark);
 }
 
 h4, h5, h6 {
   font-size: 1.5rem;
   margin: 14px 0;
-  color: #1D1D1D;
+  color: var(--color-dark);
 }
 
 /* Paragraphs */
@@ -47,11 +55,11 @@ p {
   font-size: 1rem;
   margin: 10px 0;
   line-height: 1.6;
-  color: #1D1D1D;
+  color: var(--color-dark);
 }
 
 a {
-  color: #34626c;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -64,8 +72,8 @@ a:hover {
   display: inline-block;
   padding: 12px 25px;
   font-size: 1.1rem;
-  color: #F5F5F5;
-  background-color: #34626c;
+  color: var(--color-light);
+  background-color: var(--color-primary);
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -75,13 +83,13 @@ a:hover {
 }
 
 .modern-button:hover {
-  background-color: #34626c;
+  background-color: var(--color-primary);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
 }
 
 .modern-button:active {
-  background-color: #B71515;
+  background-color: var(--color-accent);
   transform: translateY(1px);
 }
 
@@ -123,8 +131,8 @@ footer {
   left: 0;
   right: 0;
   height: 60px;
-  background-color: #1D1D1D;
-  color: #f5f5f5;
+  background-color: var(--color-dark);
+  color: var(--color-light);
   display: flex;
   align-items: center;
   justify-content: center;

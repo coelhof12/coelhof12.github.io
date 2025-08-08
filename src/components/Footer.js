@@ -6,7 +6,11 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="../assets/images/FC_logo.png" alt="FC Logo" />
+          <img
+            src="../assets/images/FC_logo.png"
+            alt="Francisco Coelho logo"
+            loading="lazy"
+          />
         </div>
       <div className="footer-links">
         <a href="https://github.com/coelhof12" target="_blank" rel="noopener noreferrer">GitHub</a>

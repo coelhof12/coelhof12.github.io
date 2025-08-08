@@ -72,6 +72,7 @@ const ProjectCard = ({ project, index }) => {
               src={project.image}
               alt={project.name}
               className="project-image"
+              loading="lazy"
             />
           )}
           <a

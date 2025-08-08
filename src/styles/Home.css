@@ -27,7 +27,7 @@
 
 .intro-section h1 {
   font-size: 2.5rem;
-  color: #34626c;
+  color: var(--color-primary);
   margin-bottom: 10px;
 }
 
@@ -47,8 +47,8 @@
   display: inline-block;
   padding: 12px 25px;
   font-size: 1.1rem;
-  color: #F5F5F5;
-  background-color: #34626c;
+  color: var(--color-light);
+  background-color: var(--color-primary);
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -57,7 +57,7 @@
 }
 
 .modern-button:hover {
-  background-color: #34626c;
+  background-color: var(--color-primary);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
 }
@@ -71,7 +71,7 @@
 .development-process {
   margin-top: 60px;
   padding: 40px;
-  background-color: #f5f5f5;
+  background-color: var(--color-light);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@
 .development-process h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #34626c;
+  color: var(--color-primary);
 }
 
 /* Grid for the steps */
@@ -118,7 +118,7 @@
 }
 
 .process-step h3 {
-  color: #34626c;
+  color: var(--color-primary);
   margin-bottom: 10px;
 }
 

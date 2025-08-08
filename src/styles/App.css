@@ -1,8 +1,8 @@
 /* General container styling */
 .about-container {
   padding: 40px;
-  color: #1D1D1D;
-  background-color: #F5F5F5;
+  color: var(--color-dark);
+  background-color: var(--color-light);
 }
 
 /* Introduction section */
@@ -13,7 +13,7 @@
 
 .about-intro h1 {
   font-family: 'Montserrat', sans-serif;
-  color: #34626c; 
+  color: var(--color-primary);
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -21,7 +21,7 @@
 .about-intro p {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
-  color: #1D1D1D; 
+  color: var(--color-dark);
 }
 
 /* Skills overview section */
@@ -106,7 +106,7 @@
   left: 20px;
   width: 2px;
   height: 100%;
-  background-color: #34626c; 
+  background-color: var(--color-primary);
 }
 
 /* Timeline item styling */
@@ -114,15 +114,15 @@
   position: relative;
   padding: 20px;
   background-color: #fff;
-  border-left: 5px solid #34626c; 
+  border-left: 5px solid var(--color-primary);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0; 
-  transform: translateY(50px); 
-  transition: opacity 0.6s ease, transform 0.6s ease; 
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .timeline-item h3 {
-  color: #34626c;
+  color: var(--color-primary);
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -140,9 +140,9 @@
   top: 20px;
   width: 15px;
   height: 15px;
-  background-color: #34626c; 
+  background-color: var(--color-primary);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #F5F5F5; 
+  box-shadow: 0 0 0 4px var(--color-light);
 }
 
 .timeline-item.show {

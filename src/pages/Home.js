@@ -11,6 +11,7 @@ function Home() {
           src="../assets/images/me_banner.jpg"
           alt="Francisco Coelho Banner"
           className="banner-image"
+          loading="lazy"
         />
       </div>
 
@@ -45,31 +46,51 @@ function Home() {
         <h2>How I Work</h2>
         <div className="process-grid">
           <div className="process-step">
-            <img src="/assets/images/icons/research.jpg" alt="Research Icon" />
+            <img
+              src="/assets/images/icons/research.jpg"
+              alt="Research Icon"
+              loading="lazy"
+            />
             <h3>Research</h3>
             <p>Understanding the requirements and gathering information.</p>
           </div>
           <div className="process-step">
-            <img src="/assets/images/icons/design.jpg" alt="Design Icon" />
+            <img
+              src="/assets/images/icons/design.jpg"
+              alt="Design Icon"
+              loading="lazy"
+            />
             <h3>Design</h3>
             <p>
               Creating wireframes and prototypes that outline user experience.
             </p>
           </div>
           <div className="process-step">
-            <img src="/assets/images/icons/develop.jpg" alt="Develop Icon" />
+            <img
+              src="/assets/images/icons/develop.jpg"
+              alt="Develop Icon"
+              loading="lazy"
+            />
             <h3>Develop</h3>
             <p>
               Writing code and building the application’s core functionality.
             </p>
           </div>
           <div className="process-step">
-            <img src="/assets/images/icons/test.jpg" alt="Test Icon" />
+            <img
+              src="/assets/images/icons/test.jpg"
+              alt="Test Icon"
+              loading="lazy"
+            />
             <h3>Test</h3>
             <p>Ensuring the product is free from bugs and works as expected.</p>
           </div>
           <div className="process-step">
-            <img src="/assets/images/icons/deploy.jpg" alt="Deploy Icon" />
+            <img
+              src="/assets/images/icons/deploy.jpg"
+              alt="Deploy Icon"
+              loading="lazy"
+            />
             <h3>Deploy</h3>
             <p>Launching the product and making it available to users.</p>
           </div>
@@ -82,6 +103,7 @@ function Home() {
         <img
           src="https://github-readme-stats.vercel.app/api?username=coelhof12&show_icons=true&hide_border=true&bg_color=1D1D1D&title_color=34626c&text_color=F5F5F5&icon_color=34626c"
           alt="GitHub Stats"
+          loading="lazy"
         />
       </div>
 
@@ -90,6 +112,7 @@ function Home() {
         <img
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=coelhof12&layout=compact&hide_border=true&bg_color=1D1D1D&title_color=34626c&text_color=F5F5F5&icon_color=34626c"
           alt="Top Languages"
+          loadding="lazy"
         />
       </div>
     </div>
