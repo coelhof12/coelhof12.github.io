@@ -1,39 +1,19 @@
 {
-  "name": "my-portfolio",
-  "version": "1.0.0",
+  "name": "coelhof12.github.io",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
   "homepage": "https://coelhof12.github.io/",
-  "main": "index.js",
-  "dependencies": {
-    "@react-spring/web": "^9.7.4",
-    "chroma-js": "^3.1.1",
-    "dotenv": "^16.4.5",
-    "github-calendar": "^2.3.4",
-    "node-fetch": "^2.7.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "react-scripts": "^5.0.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "prebuild": "node fetchGitHubData.js || echo 'Skipping GitHub data fetch in production'",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/sitemap": "^3.1.0",
+    "astro": "^4.11.0",
+    "zod": "^3.23.8"
   }
 }

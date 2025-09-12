@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Contact — Francisco Coelho" description="Get in touch for collaborations or inquiries.">
+  <div class="page-container">
+    <div class="content-wrap">
+      <div class="contact-container">
+        <h1>Get in Touch</h1>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+            <p>Email: <a href="mailto:coelho1@ua.pt">coelho1@ua.pt</a></p>
+          </div>
+          <div class="form-wrapper fadeIn">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Form submission to be configured.');">
+              <div class="form-group">
+                <input type="text" id="name" required />
+                <label for="name">Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" required />
+                <label for="email">Email</label>
+              </div>
+              <div class="form-group">
+                <textarea id="message" rows="5" required></textarea>
+                <label for="message">Message</label>
+              </div>
+              <button type="submit" class="submit-button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+

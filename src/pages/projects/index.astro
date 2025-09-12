@@ -1,0 +1,33 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from 'astro:content';
+const projects = await getCollection('projects');
+---
+<Base title="Projects — Francisco Coelho" description="Curated projects and case studies.">
+  <div class="projects-container">
+    <h1>My Projects</h1>
+    <div class="projects-grid">
+      {projects.map(({ id, data, slug }) => (
+        <div class="project-card" id={id}>
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-header">
+                <h2>{data.title}</h2>
+              </div>
+              <p>{data.summary || 'No description available'}</p>
+              {data.tech?.length ? (
+                <p><strong>Technologies:</strong> {data.tech.join(', ')}</p>
+              ) : null}
+              {data.image && <img src={data.image} alt={data.title} class="project-image" loading="lazy" />}
+              <div style="display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;">
+                <a href={`/projects/${slug}/`} class="modern-button">Read Case Study</a>
+                {data.repo && <a href={data.repo} class="modern-button" target="_blank" rel="noopener">Repo</a>}
+                {data.live && <a href={data.live} class="modern-button" target="_blank" rel="noopener">Live</a>}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Base>

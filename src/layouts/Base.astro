@@ -1,0 +1,121 @@
+---
+const { title = 'Francisco Coelho — Full‑Stack Developer', description = 'Portfolio of Francisco Coelho, a full‑stack developer building scalable web applications.' } = Astro.props;
+import '../index.css';
+import '../styles/Components.css';
+import '../styles/Home.css';
+import '../styles/Projects.css';
+import '../styles/App.css';
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={(Astro.site ?? new URL('/', Astro.request.url)).toString()} />
+    <meta name="theme-color" content="#34626c" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Selected projects, work approach, and contact information." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={(Astro.site ?? new URL('/', Astro.request.url)).toString()} />
+    <meta property="og:image" content="https://coelhof12.github.io/assets/images/Repo_Cover.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content="Selected projects, work approach, and contact information." />
+    <meta name="twitter:image" content="https://coelhof12.github.io/assets/images/Repo_Cover.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/assets/images/FC_favicon.png" type="image/x-icon" />
+
+    <script is:inline>
+      try {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    </script>
+
+    
+  </head>
+  <body>
+    <a href="#main-content" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.position='static'">Skip to content</a>
+    <header>
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-logo">
+          <a href="/">
+            <img src="/assets/images/FC_logo.png" alt="Francisco Coelho logo" loading="lazy" />
+          </a>
+        </div>
+        <ul class="navbar-links">
+          <li><a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a></li>
+          <li><a href="/projects/" class={Astro.url.pathname.startsWith('/projects') ? 'active' : ''}>Projects</a></li>
+          <li><a href="/about/" class={Astro.url.pathname === '/about/' ? 'active' : ''}>About</a></li>
+          <li><a href="/contact/" class={Astro.url.pathname === '/contact/' ? 'active' : ''}>Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="navbar-menu-icon" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+      </nav>
+    </header>
+    <main id="main-content" class="main-content">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/assets/images/FC_logo.png" alt="Francisco Coelho logo" loading="lazy" />
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/coelhof12" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/francisco-coelho12" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; {new Date().getFullYear()} Francisco Coelho. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-toggle');
+      const navbar = document.querySelector('.navbar');
+      const links = document.querySelector('.navbar-links');
+      if (menuBtn && navbar && links) {
+        menuBtn.addEventListener('click', () => {
+          const open = navbar.classList.toggle('open');
+          links.classList.toggle('show-navbar-links', open);
+          menuBtn.setAttribute('aria-expanded', String(open));
+          menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+      }
+      // Theme toggle
+      const themeBtn = document.getElementById('theme-toggle');
+      if (themeBtn) {
+        const setIcon = () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          themeBtn.textContent = current === 'dark' ? '🌞' : '🌙';
+          themeBtn.title = current === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+        };
+        setIcon();
+        themeBtn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme') || 'light';
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          setIcon();
+        });
+      }
+    </script>
+  </body>
+  </html>

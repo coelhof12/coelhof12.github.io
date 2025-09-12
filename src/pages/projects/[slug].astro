@@ -1,0 +1,31 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.slug } }));
+}
+const { slug } = Astro.params;
+const projects = await getCollection('projects');
+const entry = projects.find((p) => p.slug === slug);
+if (!entry) {
+  throw new Error(`Project not found: ${slug}`);
+}
+const { Content } = await entry.render();
+const { data } = entry;
+---
+<Base title={`${data.title} — Project`} description={data.summary ?? 'Project case study'}>
+  <article class="about-container">
+    <h1>{data.title}</h1>
+    {data.image && <img src={data.image} alt={data.title} class="banner-image" />}
+    <p style="color:var(--muted); margin-bottom:1rem;">
+      {data.tech?.length ? `Tech: ${data.tech.join(', ')}` : ''}
+    </p>
+    <Content />
+    <p style="margin-top:1.5rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+      {data.repo && <a class="modern-button" href={data.repo} target="_blank" rel="noopener">View Repo</a>}
+      {data.live && <a class="modern-button" href={data.live} target="_blank" rel="noopener">View Live</a>}
+      <a class="modern-button" href="/projects/">← Back to Projects</a>
+    </p>
+  </article>
+</Base>
