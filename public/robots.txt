@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://coelhof12.github.io/sitemap.xml
+Sitemap: https://coelhof12.github.io/sitemap-index.xml
