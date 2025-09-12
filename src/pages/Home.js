@@ -8,7 +8,7 @@ function Home() {
       {/* Banner Image */}
       <div className="banner-container">
         <img
-          src="../assets/images/me_banner.jpg"
+          src="/assets/images/me_banner.jpg"
           alt="Francisco Coelho Banner"
           className="banner-image"
           loading="lazy"
@@ -112,7 +112,7 @@ function Home() {
         <img
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=coelhof12&layout=compact&hide_border=true&bg_color=1D1D1D&title_color=34626c&text_color=F5F5F5&icon_color=34626c"
           alt="Top Languages"
-          loadding="lazy"
+          loading="lazy"
         />
       </div>
     </div>

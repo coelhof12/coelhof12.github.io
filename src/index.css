@@ -2,10 +2,25 @@
 
 
 :root {
+  /* Existing palette */
   --color-light: #F5F5F5;
   --color-dark: #1D1D1D;
   --color-primary: #34626c;
   --color-accent: #B71515;
+
+  /* Semantic tokens for theming */
+  --bg: var(--color-light);
+  --text: var(--color-dark);
+  --surface: #ffffff;
+  --muted: #6b7280;
+}
+
+/* Dark theme override (scaffold) */
+[data-theme='dark'] {
+  --bg: #0f1115;
+  --text: #e6e6e6;
+  --surface: #1b1f2a;
+  --muted: #9aa3b2;
 }
 
 * {
@@ -15,8 +30,8 @@
 }
 
 body {
-  background-color: var(--color-light); /* White background for the site */
-  color: var(--color-dark); /* Black text */
+  background-color: var(--bg);
+  color: var(--text);
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -124,17 +139,4 @@ img {
   flex: 1;
 }
 
-/* Footer styling */
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-}
+/* Footer positioning handled in component styles */

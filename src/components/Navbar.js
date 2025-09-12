@@ -1,14 +1,38 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../styles/Components.css";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [theme, setTheme] = useState(() =>
+    typeof window !== 'undefined' ? (localStorage.getItem('theme') || '') : ''
+  );
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', next);
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', next);
+    }
+  };
+
+  useEffect(() => {
+    if (!theme && typeof window !== 'undefined') {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = prefersDark ? 'dark' : 'light';
+      setTheme(initial);
+      document.documentElement.setAttribute('data-theme', initial);
+    } else if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
 
   return (
     <nav
@@ -17,13 +41,13 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       <div className="navbar-logo">
-        <Link to="/">
+        <NavLink to="/" end>
           <img
-            src="../assets/images/FC_logo.png"
+            src="/assets/images/FC_logo.png"
             alt="Francisco Coelho logo"
             loading="lazy"
           />
-        </Link>
+        </NavLink>
       </div>
       <ul
         className={`navbar-links ${
@@ -31,35 +55,32 @@ const Navbar = () => {
         }`}
       >
         <li>
-          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </Link>
+          <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink>
         </li>
         <li>
-          <Link
-            to="/projects"
-            className={location.pathname === "/projects" ? "active" : ""}
-          >
+          <NavLink to="/projects" className={({ isActive }) => (isActive ? "active" : "")}>
             Projects
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
-            to="/about"
-            className={location.pathname === "/about" ? "active" : ""}
-          >
+          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
             About
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
-            to="/contact"
-            className={location.pathname === "/contact" ? "active" : ""}
-          >
+          <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")}>
             Contact
-          </Link>
+          </NavLink>
         </li>
       </ul>
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      >
+        {theme === 'dark' ? '🌞' : '🌙'}
+      </button>
       <button
         className={`navbar-menu-icon ${isMobileMenuOpen ? "open" : ""}`}
         onClick={toggleMobileMenu}

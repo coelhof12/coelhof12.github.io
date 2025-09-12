@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo">
           <img
-            src="../assets/images/FC_logo.png"
+            src="/assets/images/FC_logo.png"
             alt="Francisco Coelho logo"
             loading="lazy"
           />

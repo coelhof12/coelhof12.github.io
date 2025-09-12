@@ -14,7 +14,7 @@ function Contact() {
               <p>Email: coelho1@ua.pt</p>
             </div>
             <div className="form-wrapper fadeIn">
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
                   <input type="text" id="name" required />
                   <label htmlFor="name">Name</label>

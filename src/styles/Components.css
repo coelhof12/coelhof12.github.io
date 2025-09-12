@@ -147,3 +147,25 @@ body, .main-content {
   margin-top: 10px;
   color: #ddd;
 }
+
+/* Theme toggle button */
+.theme-toggle {
+  margin-left: 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  color: var(--color-light);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255,255,255,0.08);
+}
+
+[data-theme='dark'] .footer {
+  background-color: #111319;
+}
+[data-theme='dark'] .navbar {
+  background-color: #111319;
+}
