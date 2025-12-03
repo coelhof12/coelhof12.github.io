@@ -1,13 +1,951 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./assets/images/FC_favicon.png" type="image/x-icon">
-  <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Produtividade - OF 83-88</title>
+    <link rel="icon" href="./assets/images/FC_favicon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #E6692D;
+            --primary-dark: #c95a24;
+            --secondary: #2c3e50;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --border: #dee2e6;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .stat-card h3 {
+            color: var(--text-light);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-card .unit {
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin-left: 5px;
+        }
+
+        .chart-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .chart-container h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .chart-wrapper.large {
+            height: 500px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        thead {
+            background: var(--secondary);
+            color: white;
+        }
+
+        thead th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background-color 0.2s;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(230, 105, 45, 0.05);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody td {
+            padding: 16px 18px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(230, 105, 45, 0.1) 0%, rgba(230, 105, 45, 0.05) 100%);
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.top {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge.medium {
+            background: var(--warning);
+            color: var(--secondary);
+        }
+
+        .badge.low {
+            background: var(--info);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--secondary);
+            margin: 40px 0 25px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+
+        .legend-custom {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(44, 62, 80, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .auth-modal {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .auth-modal h2 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .auth-modal p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .auth-modal label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--secondary);
+        }
+
+        .auth-modal input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 14px;
+            font-size: 1em;
+        }
+
+        .auth-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .auth-button {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .auth-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .auth-error {
+            color: #c0392b;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
+    <div class="auth-overlay" id="auth-overlay">
+        <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+            <h2 id="auth-title">Acesso restrito</h2>
+            <p>Introduza as credenciais fornecidas para visualizar o relatório.</p>
+            <div class="auth-error" id="auth-error">Credenciais inválidas. Tente novamente.</div>
+            <form id="auth-form">
+                <label for="auth-user">Utilizador</label>
+                <input id="auth-user" name="username" type="text" autocomplete="username" required autofocus>
+                <label for="auth-pass">Password</label>
+                <input id="auth-pass" name="password" type="password" autocomplete="current-password" required>
+                <div class="auth-actions">
+                    <button class="auth-button" type="submit">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="content" hidden>
+        <header>
+            <h1>📊 Análise de Produtividade</h1>
+            <p>Ordens de Fabrico: 83, 84, 85, 86, 87 e 88</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total de Horas</h3>
+                <div class="value">311.82<span class="unit">h</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Total de Produtos</h3>
+                <div class="value">208<span class="unit">unid</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Média de Produtividade</h3>
+                <div class="value">0.67<span class="unit">prod/h</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Ordens de Fabrico</h3>
+                <div class="value">6<span class="unit">OFs</span></div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Visão Geral por Funcionário</h2>
+
+        <div class="chart-container">
+            <h2>⏱️ Tempo Total por Funcionário</h2>
+            <div class="chart-wrapper">
+                <canvas id="chartTempoFuncionario"></canvas>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="chart-container">
+                <h2>🎯 Produtividade (Produtos/Hora)</h2>
+                <div class="chart-wrapper">
+                    <canvas id="chartProdutividade"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>📦 Distribuição de Produtos</h2>
+                <div class="chart-wrapper">
+                    <canvas id="chartDistribuicaoProdutos"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>🔄 Comparação: CRU vs Tapa-Poros por Funcionário</h2>
+            <div class="chart-wrapper">
+                <canvas id="chartCruVsTP"></canvas>
+            </div>
+        </div>
+
+        <h2 class="section-title">Análise por Ordem de Fabrico</h2>
+
+        <div class="grid-2">
+            <div class="chart-container">
+                <h2>⏱️ Tempo Total por OF</h2>
+                <div class="chart-wrapper">
+                    <canvas id="chartTempoOF"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>📊 Produtos por OF</h2>
+                <div class="chart-wrapper">
+                    <canvas id="chartProdutosOF"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>🔍 Produtividade por Ordem de Fabrico</h2>
+            <div class="chart-wrapper large">
+                <canvas id="chartProdutividadeOF"></canvas>
+            </div>
+        </div>
+
+        <h2 class="section-title">Tabela Detalhada</h2>
+
+        <div class="chart-container">
+            <h2>📋 Resumo Completo por Funcionário</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Funcionário</th>
+                        <th>Tempo Total (h)</th>
+                        <th>Produtos CRU</th>
+                        <th>Produtos TP</th>
+                        <th>Total Produtos</th>
+                        <th>Produtividade</th>
+                        <th>Performance</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaResumo">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-container">
+            <h2>📋 Detalhamento por OF e Funcionário</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Funcionário</th>
+                        <th>OF 83</th>
+                        <th>OF 84</th>
+                        <th>OF 85</th>
+                        <th>OF 86</th>
+                        <th>OF 87</th>
+                        <th>OF 88</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaDetalhada">
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>Relatório gerado automaticamente | Dados das Ordens de Fabrico 83-88</p>
+        </footer>
+    </div>
+
+    <script>
+        const VALID_USER = 'certoma';
+        const VALID_PASS = 'certomaSRP';
+        const AUTH_KEY = 'certoma-auth';
+        let dashboardLoaded = false;
+
+        const dados = {
+            "tempo_por_funcionario": {"Luana": 153.59, "Cristina": 117.22, "Antónia": 27.55, "Teresa": 10.14, "Diogo": 3.32},
+            "tempo_por_of": {"87": 112.11, "84": 57.18, "83": 54.56, "85": 47.57, "88": 38.43, "86": 1.97},
+            "produtos_cru": {"Cristina": 61, "Luana": 37, "Antónia": 4, "Teresa": 1, "Diogo": 1},
+            "produtos_tp": {"Cristina": 50, "Luana": 31, "Antónia": 18, "Teresa": 3, "Diogo": 2},
+            "produtos_por_of_cru": {"83": 20, "84": 23, "85": 19, "86": 1, "87": 19, "88": 22},
+            "produtos_por_of_tp": {"83": 20, "84": 23, "85": 19, "86": 1, "87": 19, "88": 22},
+            "tempo_funcionario_of": {
+                "Antónia": {"83": 6.93, "84": 6.58, "86": 0.52, "87": 13.52},
+                "Cristina": {"83": 21.36, "84": 23.68, "85": 23.06, "86": 1.45, "87": 28.26, "88": 19.41},
+                "Diogo": {"84": 2.12, "85": 1.2},
+                "Luana": {"83": 23.68, "84": 23.43, "85": 23.31, "87": 64.15, "88": 19.02},
+                "Teresa": {"83": 2.59, "84": 1.37, "87": 6.18}
+            },
+            "produtividade": {"Cristina": 0.95, "Diogo": 0.9, "Antónia": 0.8, "Luana": 0.44, "Teresa": 0.39}
+        };
+
+        const cores = {
+            primary: '#E6692D',
+            secondary: '#2c3e50',
+            success: '#28a745',
+            info: '#17a2b8',
+            warning: '#ffc107',
+            gradient: ['#E6692D', '#FF8C50', '#FFA873', '#c95a24', '#a64a1e']
+        };
+
+        const bootstrapDashboard = () => {
+            if (dashboardLoaded) return;
+            dashboardLoaded = true;
+            Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            Chart.defaults.color = '#2c3e50';
+
+            const ctxTempoFunc = document.getElementById('chartTempoFuncionario').getContext('2d');
+            new Chart(ctxTempoFunc, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(dados.tempo_por_funcionario),
+                    datasets: [{
+                        label: 'Horas Trabalhadas',
+                        data: Object.values(dados.tempo_por_funcionario),
+                        backgroundColor: cores.gradient,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            callbacks: {
+                                label: (context) => `${context.parsed.y.toFixed(2)} horas`
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => value + 'h'
+                            },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const ctxProd = document.getElementById('chartProdutividade').getContext('2d');
+            new Chart(ctxProd, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(dados.produtividade),
+                    datasets: [{
+                        label: 'Produtos por Hora',
+                        data: Object.values(dados.produtividade),
+                        backgroundColor: cores.success,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12,
+                            callbacks: {
+                                label: (context) => `${context.parsed.x.toFixed(2)} produtos/hora`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => value.toFixed(2)
+                            },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const ctxDist = document.getElementById('chartDistribuicaoProdutos').getContext('2d');
+            const totalProdutos = {};
+            Object.keys(dados.produtos_cru).forEach(func => {
+                totalProdutos[func] = (dados.produtos_cru[func] || 0) + (dados.produtos_tp[func] || 0);
+            });
+            
+            new Chart(ctxDist, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(totalProdutos),
+                    datasets: [{
+                        data: Object.values(totalProdutos),
+                        backgroundColor: cores.gradient,
+                        borderWidth: 3,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 15,
+                                font: { size: 12, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12,
+                            callbacks: {
+                                label: (context) => {
+                                    const label = context.label || '';
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return `${label}: ${value} produtos (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const ctxCruTP = document.getElementById('chartCruVsTP').getContext('2d');
+            const funcionarios = [...new Set([...Object.keys(dados.produtos_cru), ...Object.keys(dados.produtos_tp)])];
+            
+            new Chart(ctxCruTP, {
+                type: 'bar',
+                data: {
+                    labels: funcionarios,
+                    datasets: [
+                        {
+                            label: 'CRU',
+                            data: funcionarios.map(f => dados.produtos_cru[f] || 0),
+                            backgroundColor: cores.primary,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        },
+                        {
+                            label: 'Tapa-Poros',
+                            data: funcionarios.map(f => dados.produtos_tp[f] || 0),
+                            backgroundColor: cores.info,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                padding: 15,
+                                font: { size: 13, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stacked: false,
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const ctxTempoOF = document.getElementById('chartTempoOF').getContext('2d');
+            const ofs = Object.keys(dados.tempo_por_of).sort((a, b) => parseInt(a) - parseInt(b));
+            
+            new Chart(ctxTempoOF, {
+                type: 'bar',
+                data: {
+                    labels: ofs.map(of => `OF ${of}`),
+                    datasets: [{
+                        label: 'Horas',
+                        data: ofs.map(of => dados.tempo_por_of[of]),
+                        backgroundColor: cores.gradient,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12,
+                            callbacks: {
+                                label: (context) => `${context.parsed.y.toFixed(2)} horas`
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => value + 'h'
+                            },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const ctxProdOF = document.getElementById('chartProdutosOF').getContext('2d');
+            new Chart(ctxProdOF, {
+                type: 'bar',
+                data: {
+                    labels: ofs.map(of => `OF ${of}`),
+                    datasets: [
+                        {
+                            label: 'CRU',
+                            data: ofs.map(of => dados.produtos_por_of_cru[of] || 0),
+                            backgroundColor: cores.primary,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        },
+                        {
+                            label: 'Tapa-Poros',
+                            data: ofs.map(of => dados.produtos_por_of_tp[of] || 0),
+                            backgroundColor: cores.info,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                padding: 15,
+                                font: { size: 13, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const ctxProdOF2 = document.getElementById('chartProdutividadeOF').getContext('2d');
+            const produtividadeOF = {};
+            ofs.forEach(of => {
+                const produtos = (dados.produtos_por_of_cru[of] || 0) + (dados.produtos_por_of_tp[of] || 0);
+                const tempo = dados.tempo_por_of[of];
+                produtividadeOF[of] = tempo > 0 ? produtos / tempo : 0;
+            });
+
+            new Chart(ctxProdOF2, {
+                type: 'line',
+                data: {
+                    labels: ofs.map(of => `OF ${of}`),
+                    datasets: [{
+                        label: 'Produtos/Hora',
+                        data: ofs.map(of => produtividadeOF[of]),
+                        backgroundColor: 'rgba(230, 105, 45, 0.1)',
+                        borderColor: cores.primary,
+                        borderWidth: 3,
+                        pointBackgroundColor: cores.primary,
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                padding: 15,
+                                font: { size: 13, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                            padding: 12,
+                            callbacks: {
+                                label: (context) => `${context.parsed.y.toFixed(2)} produtos/hora`
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => value.toFixed(2)
+                            },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const tabelaResumo = document.getElementById('tabelaResumo');
+            const funcionariosOrdenados = Object.keys(dados.produtividade).sort((a, b) => dados.produtividade[b] - dados.produtividade[a]);
+            
+            funcionariosOrdenados.forEach((func, index) => {
+                const tempo = dados.tempo_por_funcionario[func] || 0;
+                const cru = dados.produtos_cru[func] || 0;
+                const tp = dados.produtos_tp[func] || 0;
+                const total = cru + tp;
+                const prod = dados.produtividade[func] || 0;
+                
+                let badge = '';
+                if (prod >= 0.8) badge = '<span class="badge top">Alta</span>';
+                else if (prod >= 0.5) badge = '<span class="badge medium">Média</span>';
+                else badge = '<span class="badge low">Baixa</span>';
+                
+                const classe = index === 0 ? 'highlight' : '';
+                
+                tabelaResumo.innerHTML += `
+                    <tr class="${classe}">
+                        <td><strong>${func}</strong></td>
+                        <td>${tempo.toFixed(2)} h</td>
+                        <td>${cru}</td>
+                        <td>${tp}</td>
+                        <td><strong>${total}</strong></td>
+                        <td>${prod.toFixed(2)} prod/h</td>
+                        <td>${badge}</td>
+                    </tr>
+                `;
+            });
+
+            const tabelaDetalhada = document.getElementById('tabelaDetalhada');
+            const todosFunc = Object.keys(dados.tempo_funcionario_of);
+            
+            todosFunc.forEach(func => {
+                const tempos = dados.tempo_funcionario_of[func];
+                const of83 = tempos['83'] ? `${tempos['83'].toFixed(2)}h` : '-';
+                const of84 = tempos['84'] ? `${tempos['84'].toFixed(2)}h` : '-';
+                const of85 = tempos['85'] ? `${tempos['85'].toFixed(2)}h` : '-';
+                const of86 = tempos['86'] ? `${tempos['86'].toFixed(2)}h` : '-';
+                const of87 = tempos['87'] ? `${tempos['87'].toFixed(2)}h` : '-';
+                const of88 = tempos['88'] ? `${tempos['88'].toFixed(2)}h` : '-';
+                
+                tabelaDetalhada.innerHTML += `
+                    <tr>
+                        <td><strong>${func}</strong></td>
+                        <td>${of83}</td>
+                        <td>${of84}</td>
+                        <td>${of85}</td>
+                        <td>${of86}</td>
+                        <td>${of87}</td>
+                        <td>${of88}</td>
+                    </tr>
+                `;
+            });
+        };
+
+        const unlockPage = () => {
+            document.getElementById('auth-overlay').style.display = 'none';
+            const content = document.getElementById('content');
+            content.hidden = false;
+            bootstrapDashboard();
+        };
+
+        const authForm = document.getElementById('auth-form');
+        const authError = document.getElementById('auth-error');
+        const storedAuth = sessionStorage.getItem(AUTH_KEY);
+
+        if (storedAuth === 'true') {
+            unlockPage();
+        }
+
+        authForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('auth-user').value.trim();
+            const password = document.getElementById('auth-pass').value;
+
+            if (username === VALID_USER && password === VALID_PASS) {
+                sessionStorage.setItem(AUTH_KEY, 'true');
+                authError.style.display = 'none';
+                unlockPage();
+            } else {
+                authError.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
