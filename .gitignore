@@ -1,38 +1,9 @@
-<<<<<<< HEAD
-# Ignore node_modules
-node_modules/
-
-# Ignore log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Ignore environment variables
-.env
-
-# Ignore build directory (for projects with a build step)
-dist/
-
-
-# Ignore coverage reports
-coverage/
-
-# Ignore OS generated files
-.DS_Store
-Thumbs.db
-
-# Ignore Visual Studio Code settings
-.vscode/
-
-# Ignore temporary files
-*.tmp
-*.bak
-*.log
-=======
 # Logs
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Dependency directories
 node_modules/
@@ -40,15 +11,25 @@ node_modules/
 # Build output
 dist/
 
-# Misc
-.DS_Store
-.env
-.vscode/
+# Coverage
+coverage/
 
-# Cache directories
+# Environment files
+.env
+
+# OS / Editor directories
+.DS_Store
+Thumbs.db
+.vscode/
 .cache/
 .idea/
->>>>>>> 44451949623440f8394eb3d4e8007824b239fbdc
 
+# Temporary files
+*.tmp
+*.bak
 
+# Generated data
 src/githubData.json
+
+# Package manager lockfiles
+pnpm-lock.yaml
